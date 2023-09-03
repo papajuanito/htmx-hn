@@ -1,5 +1,5 @@
 import * as elements from "typed-html";
-import { Category } from "../../types/HackerNews";
+import { Category } from "../../../types/HackerNews";
 import {
   StarFilled,
   EyeFilled,
@@ -51,12 +51,11 @@ const NAVBAR_ITEMS: NAVBAR_ITEM[] = [
 ];
 
 const NavigationPill = ({ title, to, icon }: NAVBAR_ITEM) => {
-  console.log({ icon });
   return (
     <li class="block shrink-0">
       <a
         href={to as string}
-        class="flex gap-[6px] justify-center items-center py-[8px] px-[20px] bg-[#4984f7] rounded-[18px] font-semibold shrink-0 no-underline tracking-[0.5px] text-white"
+        class="flex gap-[6px] justify-center items-center py-[6px] px-[20px] bg-[#4984f7] rounded-[18px] font-semibold shrink-0 no-underline tracking-[0.5px] text-white"
       >
         {renderIconDefinitionToSVGElement(icon as unknown as IconDefinition, {
           extraSVGAttrs: {
