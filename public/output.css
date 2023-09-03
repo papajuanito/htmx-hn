@@ -566,6 +566,10 @@ video {
   margin-top: 14px;
 }
 
+.mr-\[32px\] {
+  margin-right: 32px;
+}
+
 .block {
   display: block;
 }

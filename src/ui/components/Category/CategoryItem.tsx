@@ -3,6 +3,7 @@ import { Story } from "../../../types/HackerNews";
 import { getUrlHostname } from "../../../helpers/url";
 
 const CategoryItem = ({
+  id,
   index,
   title,
   url,
@@ -13,10 +14,10 @@ const CategoryItem = ({
   return (
     <li>
       <a
-        href=""
+        href={`/story/${id}`}
         class="flex p-[14px] border-b-[1px] border-b-[#3d3d3d] items-center"
       >
-        <div class="flex flex-1 flex-col justify-center">
+        <div class="flex flex-1 flex-col justify-center mr-[32px]">
           <div class="text-[12px] mb-[8px]">
             {`${(index as number) + 1}.`}
             <span class="text-[13px] text-[#3f97e5] font-medium ml-[4px] tracking-[0.4px]">
@@ -35,11 +36,11 @@ const CategoryItem = ({
           <p class="mb-[8px]">Comments</p>
         </div>
         <span
-          class="h-[70px] w-[70px]"
+          class="block"
           hx-get={`/metadata?url=${encodeURIComponent(url!)}`}
           hx-trigger="load"
-          hx-swap="outerHTML"
-        ></span>
+          hx-swap="innerHTML"
+        />
       </a>
     </li>
   );

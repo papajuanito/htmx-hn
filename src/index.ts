@@ -46,7 +46,7 @@ app.get("/metadata", async ({ query, set }) => {
     return (set.status = 404);
   }
 
-  const response = new Response(CategoryItemImage({ src: image }), {
+  const response = new Response(CategoryItemImage({ src: image, url }), {
     headers: {
       "content-type": "text/html; charset=utf-8",
     },
