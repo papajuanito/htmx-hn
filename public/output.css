@@ -533,3 +533,78 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.bg-\[\#2e2f31\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(46 47 49 / var(--tw-bg-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+html,
+body {
+  font-family: San Francisco, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: San Francisco;
+
+  font-weight: 300;
+
+  src: url("/public/sfns-ttf/SFNSDisplay-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: San Francisco;
+
+  font-weight: 400;
+
+  src: url("/public/sfns-ttf/SFNSDisplay-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: San Francisco;
+
+  font-weight: 500;
+
+  src: url("/public/sfns-ttf/SFNSDisplay-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: San Francisco;
+
+  font-weight: 600;
+
+  src: url("/public/sfns-ttf/SFNSDisplay-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: San Francisco;
+
+  font-weight: 700;
+
+  src: url("/public/sfns-ttf/SFNSDisplay-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: San Francisco;
+
+  font-weight: 800;
+
+  src: url("/public/sfns-ttf/SFNSDisplay-Heavy.ttf") format("truetype");
+}
