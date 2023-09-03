@@ -2,8 +2,9 @@
   "name": "htmx-hn",
   "version": "1.0.50",
   "scripts": {
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"bun run --watch src/index.ts\" \"bun run tailwindcss -i ./src/ui/styles/input.css -o ./public/output.css --watch\""
+    "dev": "concurrently \"webpack --mode development --watch\" \"bun run --watch src/index.ts\" \"bun run tailwindcss -i ./src/ui/styles/input.css -o ./public/output.css --watch\""
   },
   "dependencies": {
     "@elysiajs/static": "^0.6.0",
@@ -21,7 +22,10 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
-    "typescript": "^5.2.2"
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "module": "src/index.js"
 }
