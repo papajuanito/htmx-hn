@@ -4,7 +4,7 @@ import App from "./ui/pages/App";
 const app = new Elysia().use(staticPlugin());
 
 app.get("/", () => {
-  return new Response(App(), {
+  return new Response(App({}), {
     headers: {
       "content-type": "text/html; charset=utf-8",
     },

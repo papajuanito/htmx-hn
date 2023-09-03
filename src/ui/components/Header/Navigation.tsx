@@ -5,14 +5,19 @@ import {
   EyeFilled,
   SendOutlined,
   QuestionCircleFilled,
-  ExclamationOutlined,
   ExclamationCircleFilled,
   CodeFilled,
 } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
 import { IconDefinition } from "@ant-design/icons-svg/lib/types";
 
-const NAVBAR_ITEMS = [
+type NAVBAR_ITEM = {
+  icon: IconDefinition;
+  title: string;
+  to: string;
+};
+
+const NAVBAR_ITEMS: NAVBAR_ITEM[] = [
   {
     icon: StarFilled,
     title: "Top Stories",
@@ -45,7 +50,7 @@ const NAVBAR_ITEMS = [
   },
 ];
 
-const NavigationPill = ({ title, to, icon }: elements.Attributes) => {
+const NavigationPill = ({ title, to, icon }: NAVBAR_ITEM) => {
   console.log({ icon });
   return (
     <li class="block shrink-0">
@@ -69,7 +74,9 @@ const NavigationPill = ({ title, to, icon }: elements.Attributes) => {
 const Navigation = () => {
   return (
     <ul class="container-snap mt-[14px] px-[14px] flex gap-[8px] w-full overflow-x-scroll overflow-y-hidden">
-      {NAVBAR_ITEMS.map(NavigationPill)}
+      {NAVBAR_ITEMS.map((item) => (
+        <NavigationPill {...item} />
+      ))}
     </ul>
   );
 };
