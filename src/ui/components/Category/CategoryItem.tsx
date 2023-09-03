@@ -9,6 +9,7 @@ const CategoryItem = ({
   by,
   time,
 }: { index: number } & Partial<Story>) => {
+  console.log({ time, timeString: time?.toString() });
   return (
     <li>
       <a
@@ -26,14 +27,19 @@ const CategoryItem = ({
             {title}
           </p>
           <div class="mb-[8px] text-[14px] font-semibold">
-            {by} · <span>{time}</span>
+            {by} ·{" "}
+            <span class="font-normal">
+              <relative-time data-timestamp={time!.toString()} />
+            </span>
           </div>
           <p class="mb-[8px]">Comments</p>
         </div>
-        <img
-          src="https://placehold.co/600x400/EEE/31343C"
-          class="h-[70px] w-[70px] object-cover rounded-[5px] shrink-0 ml-[32px]"
-        />
+        <span
+          class="h-[70px] w-[70px]"
+          hx-get={`/metadata?url=${encodeURIComponent(url!)}`}
+          hx-trigger="load"
+          hx-swap="outerHTML"
+        ></span>
       </a>
     </li>
   );

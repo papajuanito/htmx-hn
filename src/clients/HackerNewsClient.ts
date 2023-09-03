@@ -43,15 +43,3 @@ export const getItem = async <T = Item>(itemId: number): Promise<T> => {
 
   return response.json();
 };
-
-export const getUrlMetadata = async (url: string) => {
-  try {
-    const response = await fetch(
-      `/api/metadata?url=${encodeURIComponent(url)}`
-    );
-
-    return response.json();
-  } catch (e) {
-    return {};
-  }
-};

@@ -20,13 +20,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/ui/client/RelativeTime.tsx":
+/*!****************************************!*\
+  !*** ./src/ui/client/RelativeTime.tsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/// <reference lib=\"dom\" />\n/// <reference lib=\"dom.iterable\" />\nconst DAY_MILLISECONDS = 1000 * 60 * 60 * 24;\nclass RelativeTime extends HTMLElement {\n    constructor() {\n        super();\n    }\n    connectedCallback() {\n        const timestamp = this.getAttribute(\"data-timestamp\");\n        if (!timestamp)\n            return;\n        this.innerHTML = this.getRelativeTime(timestamp);\n    }\n    getRelativeTime = (timestamp) => {\n        // Date from hacker news is in seconds\n        const date = parseInt(timestamp, 10);\n        const now = Math.floor(new Date().getTime() / 1000);\n        const rtf = new Intl.RelativeTimeFormat(\"en\", {\n            numeric: \"auto\",\n        });\n        const hoursDifference = Math.floor((date - now) / 3600) + 1;\n        const daysDifference = Math.floor(Math.abs(hoursDifference) / 24);\n        if (daysDifference > 0) {\n            return rtf.format(-daysDifference, \"day\");\n        }\n        if (hoursDifference < 24) {\n            return rtf.format(hoursDifference, \"hours\");\n        }\n        return \"\";\n    };\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RelativeTime);\n\n\n//# sourceURL=webpack://htmx-hn/./src/ui/client/RelativeTime.tsx?");
+
+/***/ }),
+
 /***/ "./src/ui/client/index.ts":
 /*!********************************!*\
   !*** ./src/ui/client/index.ts ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _LocalizedDate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LocalizedDate */ \"./src/ui/client/LocalizedDate.tsx\");\n\nwindow.customElements.define(\"localized-date\", _LocalizedDate__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n\n//# sourceURL=webpack://htmx-hn/./src/ui/client/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _LocalizedDate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LocalizedDate */ \"./src/ui/client/LocalizedDate.tsx\");\n/* harmony import */ var _RelativeTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RelativeTime */ \"./src/ui/client/RelativeTime.tsx\");\n\n\nwindow.customElements.define(\"localized-date\", _LocalizedDate__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\nwindow.customElements.define(\"relative-time\", _RelativeTime__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n\n//# sourceURL=webpack://htmx-hn/./src/ui/client/index.ts?");
 
 /***/ })
 

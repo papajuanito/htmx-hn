@@ -1,9 +1,13 @@
 import { Context, Elysia } from "elysia";
 import { staticPlugin } from "@elysiajs/static";
+
 import { Category as CategoryType } from "./types/HackerNews";
 import { getStoriesDecorated } from "./clients/HackerNewsClient";
 import Category from "./ui/components/Category/Category";
 import App from "./ui/pages/App";
+import { getUrlMetadata } from "./clients/MetadataClient";
+import CategoryItemImage from "./ui/components/Category/CategoryItemImage";
+
 const app = new Elysia().use(staticPlugin());
 
 const categoryHandler = async ({ params }: Context) => {
@@ -32,6 +36,23 @@ const categoryHandler = async ({ params }: Context) => {
 app.get("/", categoryHandler);
 
 app.get("/:category", categoryHandler);
+
+app.get("/metadata", async ({ query, set }) => {
+  const { url } = query;
+
+  const { image } = await getUrlMetadata(url as string);
+
+  if (!image) {
+    return (set.status = 404);
+  }
+
+  const response = new Response(CategoryItemImage({ src: image }), {
+    headers: {
+      "content-type": "text/html; charset=utf-8",
+    },
+  });
+  return response;
+});
 
 app.listen(3000);
 
