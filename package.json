@@ -7,6 +7,7 @@
     "dev": "concurrently \"webpack --mode development --watch\" \"bun run --watch src/index.ts\" \"bun run tailwindcss -i ./src/ui/styles/input.css -o ./public/output.css --watch\""
   },
   "dependencies": {
+    "@ant-design/icons-svg": "^4.3.1",
     "@elysiajs/static": "^0.6.0",
     "elysia": "latest",
     "tailwindcss": "^3.3.3",

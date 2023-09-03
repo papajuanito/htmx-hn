@@ -4,7 +4,7 @@ const Document = ({ children }: elements.Attributes) => {
   return (
     "<!DOCTYPE html>" +
     (
-      <html class="h-full w-full bg-[#2e2f31] text-white">
+      <html class="h-full w-full overflow-hidden bg-[#2e2f31] text-white">
         <head>
           <meta charset="UTF-8" />
           <meta
