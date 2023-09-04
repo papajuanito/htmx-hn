@@ -13,8 +13,9 @@ const Document = ({ children }: elements.Attributes) => {
           />
           <title>HTMX News</title>
           <link href="/public/output.css" rel="stylesheet" />
-          <script src="/public/bundle.js"></script>
-          <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+          <link rel="manifest" href="/public/manifest.json" />
+          <script src="/public/bundle.js" />
+          <script src="https://unpkg.com/htmx.org@1.9.5" />
         </head>
         <body class="h-full w-full">{children}</body>
       </html>

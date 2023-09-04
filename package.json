@@ -4,7 +4,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"webpack --mode development --watch\" \"bun run --watch src/index.ts\" \"bun run tailwindcss -i ./src/ui/styles/input.css -o ./public/output.css --watch\""
+    "dev": "concurrently \"webpack --mode development --watch\" \"bun run --watch src/index.ts\" \"bun run tailwindcss -i ./src/ui/styles/input.css -o ./public/output.css --watch\"",
+    "start": "ENV=production bun run src/index.ts"
   },
   "dependencies": {
     "@ant-design/icons-svg": "^4.3.1",

@@ -12,10 +12,11 @@ const CategoryItem = ({
 }: { index: number } & Partial<Story>) => {
   return (
     <li>
-      <a
+      <button
         hx-get={`/item/${id}`}
+        hx-trigger="click"
         hx-push-url="true"
-        class="flex p-[14px] border-b-[1px] border-b-[#3d3d3d] items-center"
+        class="flex w-full p-[14px] text-left border-b-[1px] border-b-[#3d3d3d] items-center"
       >
         <div class="flex flex-1 flex-col justify-center mr-[32px]">
           <div class="text-[12px] mb-[8px]">
@@ -42,7 +43,7 @@ const CategoryItem = ({
           hx-swap="innerHTML"
           hx-push-url="false"
         />
-      </a>
+      </button>
     </li>
   );
 };

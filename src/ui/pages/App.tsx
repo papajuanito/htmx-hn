@@ -6,11 +6,7 @@ import Footer from "../components/Footer/Footer";
 const App = ({ page }: elements.Attributes) => {
   return (
     <Document page={page}>
-      <div
-        id="top-content"
-        hx-swap-oob="true"
-        class="h-full w-full flex flex-col"
-      >
+      <div id="top-content" class="h-full w-full flex flex-col">
         <div class="flex-1 overflow-y-scroll">
           <Header />
           {page}

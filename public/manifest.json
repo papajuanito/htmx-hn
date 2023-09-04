@@ -1,0 +1,17 @@
+{
+  "lang": "en-us",
+  "name": "HTMX HN",
+  "short_name": "Hacker News",
+  "description": "Hacker News web client built using HTMX and Bun",
+  "start_url": "/",
+  "background_color": "#2e2f31",
+  "theme_color": "#2e2f31",
+  "orientation": "portrait",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icon512.png",
+      "sizes": "512x512"
+    }
+  ]
+}

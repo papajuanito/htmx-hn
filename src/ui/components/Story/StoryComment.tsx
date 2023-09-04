@@ -10,13 +10,13 @@ export const StoryCommentSkeleton = ({
   itemId,
   isKid,
 }: StoryCommentSkeletonProps) => {
-  console.log(isKid);
   return (
     <div
       hx-get={`/item/${itemId}?isKid=${isKid}`}
       hx-swap="outerHTML"
       hx-trigger="load"
       class="flex justify-center flex-col gap-[8px] p-[14px] no-underline text-white"
+      hx-push-url="false"
     >
       <div class="bg-[#373737] h-[12px] rounded-[3px] overflow-hidden w-[20%]" />
       <div class="bg-[#373737] h-[12px] rounded-[3px] overflow-hidden w-full" />
@@ -55,7 +55,6 @@ const StoryComment = ({ by, time, text, kids, isKid }: StoryCommentProps) => {
       <div class="text-[14px] mb-[8px] font-normal">
         <span class="font-semibold text-[#f67943]">{by}</span> ·{" "}
         <relative-time data-timestamp={time!.toString()} />
-        {isKid}
       </div>
       <div class="overflow-hidden pb-[10px] tracking-[0.4px] [&_a]:text-[#3f97e5] [&_pre]:overflow-x-auto [&_pre]:whitespace-pre-wrap [&_pre]:break-words">
         {text}

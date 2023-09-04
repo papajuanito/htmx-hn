@@ -23,7 +23,7 @@ const Story = ({ title, url, kids }: StoryType) => {
                 height: "1.2em",
               },
             })}
-            <a hx-get="/" hx-push-url="true" class="ml-[4px]">
+            <a href="javascript:history.back()" class="ml-[4px]">
               Stories
             </a>
           </button>
