@@ -79,11 +79,16 @@ app.get("/metadata", async ({ query, set }) => {
   const { image } = await getUrlMetadata(url as string);
 
   if (!image) {
-    return (set.status = 404);
+    return null;
   }
 
   const response = new Response(
-    CategoryItemImage({ src: image, url: url as string }),
+    CategoryItemImage({
+      src: image,
+      url: url as string,
+      width: "70px",
+      height: "70px",
+    }),
     {
       headers: {
         "content-type": "text/html; charset=utf-8",

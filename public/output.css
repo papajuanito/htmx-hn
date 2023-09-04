@@ -570,6 +570,10 @@ video {
   margin-top: 14px;
 }
 
+.ml-\[32px\] {
+  margin-left: 32px;
+}
+
 .block {
   display: block;
 }
@@ -652,6 +656,10 @@ video {
 
 .gap-\[8px\] {
   gap: 8px;
+}
+
+.gap-\[32px\] {
+  gap: 32px;
 }
 
 .overflow-hidden {

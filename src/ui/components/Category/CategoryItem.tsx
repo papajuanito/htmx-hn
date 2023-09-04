@@ -16,9 +16,9 @@ const CategoryItem = ({
         hx-get={`/item/${id}`}
         hx-trigger="click"
         hx-push-url="true"
-        class="flex w-full p-[14px] text-left border-b-[1px] border-b-[#3d3d3d] items-center"
+        class="flex gap-[32px] w-full p-[14px] text-left border-b-[1px] border-b-[#3d3d3d] items-center"
       >
-        <div class="flex flex-1 flex-col justify-center mr-[32px]">
+        <div class="flex flex-1 flex-col justify-center">
           <div class="text-[12px] mb-[8px]">
             {`${(index as number) + 1}.`}
             <span class="text-[13px] text-[#3f97e5] font-medium ml-[4px] tracking-[0.4px]">
@@ -37,10 +37,10 @@ const CategoryItem = ({
           <p class="mb-[8px]">Comments</p>
         </div>
         <span
-          class="block h-[70px] w-[70px]"
+          class="block w-[70px]"
           hx-get={`/metadata?url=${encodeURIComponent(url!)}`}
           hx-trigger="load"
-          hx-swap="innerHTML"
+          hx-swap="outerHTML"
           hx-push-url="false"
         />
       </button>
