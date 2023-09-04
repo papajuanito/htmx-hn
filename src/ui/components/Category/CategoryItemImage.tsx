@@ -10,7 +10,7 @@ export const CategoryItemImage = ({ src, url }: CategoryItemImageProps) => {
     <a href={url} target="_blank">
       <img
         src={src}
-        class="h-[70px] w-[70px] object-cover rounded-[5px] shrink-0"
+        class="h-full w-full object-cover rounded-[5px] shrink-0"
       />
     </a>
   );

@@ -27,7 +27,7 @@ export type Story = {
   score: number;
   time: number;
   title: string;
-  type: "story";
+  type: "story" | "comment";
   url: string;
   text?: string;
 };

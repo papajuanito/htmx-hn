@@ -10,11 +10,11 @@ const CategoryItem = ({
   by,
   time,
 }: { index: number } & Partial<Story>) => {
-  console.log({ time, timeString: time?.toString() });
   return (
     <li>
       <a
-        href={`/story/${id}`}
+        hx-get={`/item/${id}`}
+        hx-push-url="true"
         class="flex p-[14px] border-b-[1px] border-b-[#3d3d3d] items-center"
       >
         <div class="flex flex-1 flex-col justify-center mr-[32px]">
@@ -36,10 +36,11 @@ const CategoryItem = ({
           <p class="mb-[8px]">Comments</p>
         </div>
         <span
-          class="block"
+          class="block h-[70px] w-[70px]"
           hx-get={`/metadata?url=${encodeURIComponent(url!)}`}
           hx-trigger="load"
           hx-swap="innerHTML"
+          hx-push-url="false"
         />
       </a>
     </li>

@@ -8,7 +8,7 @@ type CategoryProps = {
 
 const Category = ({ stories }: CategoryProps) => {
   return (
-    <ul class="h-full w-full overflow-x-hidden overflow-y-scroll">
+    <ul class="h-full w-full">
       {stories.map((story, index) => (
         <CategoryItem index={index} {...story} />
       ))}
