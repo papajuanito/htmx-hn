@@ -1,4 +1,4 @@
-export enum Category {
+export enum CategoryType {
   TOP_STORIES = "topstories",
   NEW_STORIES = "newstories",
   BEST_STORIES = "beststories",

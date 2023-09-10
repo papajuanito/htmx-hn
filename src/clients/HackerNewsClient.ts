@@ -1,5 +1,5 @@
 import {
-  Category,
+  CategoryType,
   Item,
   StoriesResponse,
   StoriesResponseDecorated,
@@ -9,7 +9,7 @@ import {
 const HACKER_NEWS_API_BASE_URL = " https://hacker-news.firebaseio.com";
 
 export const getStories = async (
-  category: Category
+  category: CategoryType
 ): Promise<StoriesResponse> => {
   const response = await fetch(
     `${HACKER_NEWS_API_BASE_URL}/v0/${category}.json`
@@ -19,20 +19,23 @@ export const getStories = async (
 };
 
 export const getStoriesPaginated = async (
-  category: Category,
-  offset: number = 0,
+  category: CategoryType,
+  pageOffset: number = 0,
   limit: number = 20
 ): Promise<number[]> => {
   const all = await getStories(category);
+  const offset = pageOffset * limit;
   return all.slice(offset, offset + limit);
 };
 
 export const getStoriesDecorated = async (
-  category: Category,
-  offset: number = 0,
+  category: CategoryType,
+  pageOffset: number = 0,
   limit: number = 20
 ): Promise<StoriesResponseDecorated> => {
   const stories = await getStories(category);
+
+  const offset = pageOffset * limit;
   return Promise.all(stories.slice(offset, offset + limit).map(getItem<Story>));
 };
 

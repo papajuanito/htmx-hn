@@ -1,5 +1,5 @@
 import * as elements from "typed-html";
-import { Category } from "../../../types/HackerNews";
+import { CategoryType } from "../../../types/HackerNews";
 import {
   StarFilled,
   EyeFilled,
@@ -26,27 +26,27 @@ const NAVBAR_ITEMS: NAVBAR_ITEM[] = [
   {
     icon: QuestionCircleFilled,
     title: "Ask HN",
-    to: `/${Category.ASK_STORIES}`,
+    to: `/${CategoryType.ASK_STORIES}`,
   },
   {
     icon: EyeFilled,
     title: "Show HN",
-    to: `/${Category.SHOW_STORIES}`,
+    to: `/${CategoryType.SHOW_STORIES}`,
   },
   {
     icon: ExclamationCircleFilled,
     title: "Best Stories",
-    to: `/${Category.BEST_STORIES}`,
+    to: `/${CategoryType.BEST_STORIES}`,
   },
   {
     icon: SendOutlined,
     title: "New Stories",
-    to: `/${Category.NEW_STORIES}`,
+    to: `/${CategoryType.NEW_STORIES}`,
   },
   {
     icon: CodeFilled,
     title: "Jobs",
-    to: `/${Category.JOB_STORIES}`,
+    to: `/${CategoryType.JOB_STORIES}`,
   },
 ];
 

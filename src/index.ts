@@ -1,12 +1,10 @@
 import { Context, Elysia } from "elysia";
 import { staticPlugin } from "@elysiajs/static";
-
-import {
-  Category as CategoryType,
-  Story as StoryType,
-} from "./types/HackerNews";
+import { CategoryType, Story as StoryType } from "./types/HackerNews";
 import { getItem, getStoriesDecorated } from "./clients/HackerNewsClient";
-import Category from "./ui/components/Category/Category";
+import Category, {
+  renderCategoryItemList,
+} from "./ui/components/Category/Category";
 import App from "./ui/pages/App";
 import Document from "./ui/pages/Document";
 import { getUrlMetadata } from "./clients/MetadataClient";
@@ -18,7 +16,12 @@ import StoryComment, {
 
 const app = new Elysia().use(staticPlugin());
 
-const categoryHandler = async ({ params }: Context) => {
+const categoryHandler = async ({ params, query, headers }: Context) => {
+  const isHTMXRequest = headers["hx-request"] || false;
+  const { offset } = query;
+
+  const pageOffset = offset ? parseInt(offset as string, 10) : 0;
+
   const category =
     (params?.category as CategoryType) || CategoryType.TOP_STORIES;
   const categories = Object.values(CategoryType);
@@ -27,11 +30,13 @@ const categoryHandler = async ({ params }: Context) => {
     return "not found";
   }
 
-  const stories = await getStoriesDecorated(category);
+  const stories = await getStoriesDecorated(category, pageOffset);
 
-  const page = Category({ stories });
+  const html = isHTMXRequest
+    ? renderCategoryItemList({ category, stories, pageOffset })
+    : App({ page: Category({ category, stories, pageOffset }) });
 
-  const response = new Response(App({ page }), {
+  const response = new Response(html as BodyInit, {
     headers: {
       "content-type": "text/html; charset=utf-8",
     },
@@ -73,7 +78,7 @@ app.get("/item/:itemId", async ({ params, headers, query }) => {
   });
 });
 
-app.get("/metadata", async ({ query, set }) => {
+app.get("/metadata", async ({ query }) => {
   const { url } = query;
 
   const { image } = await getUrlMetadata(url as string);

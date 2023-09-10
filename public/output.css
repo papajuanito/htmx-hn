@@ -558,20 +558,12 @@ video {
   margin-left: 4px;
 }
 
-.mr-\[32px\] {
-  margin-right: 32px;
-}
-
 .mt-\[12px\] {
   margin-top: 12px;
 }
 
 .mt-\[14px\] {
   margin-top: 14px;
-}
-
-.ml-\[32px\] {
-  margin-left: 32px;
 }
 
 .block {
@@ -588,10 +580,6 @@ video {
 
 .h-\[180px\] {
   height: 180px;
-}
-
-.h-\[70px\] {
-  height: 70px;
 }
 
 .h-full {
@@ -650,16 +638,16 @@ video {
   gap: 10px;
 }
 
+.gap-\[32px\] {
+  gap: 32px;
+}
+
 .gap-\[6px\] {
   gap: 6px;
 }
 
 .gap-\[8px\] {
   gap: 8px;
-}
-
-.gap-\[32px\] {
-  gap: 32px;
 }
 
 .overflow-hidden {
