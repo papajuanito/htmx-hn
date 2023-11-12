@@ -11,6 +11,18 @@ import { getUrlHostname } from "../../../helpers/url";
 import { StoryCommentSkeleton } from "./StoryComment";
 
 const Story = ({ title, url, kids }: StoryType) => {
+  const renderKids = () => {
+    if (!kids) {
+      return (
+        <div class="flex justify-center align-center text-center flex-col gap-[8px] p-[14px] no-underline text-white">
+          No Comments
+        </div>
+      );
+    }
+
+    return kids.map((kid) => <StoryCommentSkeleton itemId={kid} />);
+  };
+
   return (
     <div id="top-content" hx-swap-oob="true" class="flex-1">
       <div class="border-b-[2px] border-b-[#3d3d3d]">
@@ -74,11 +86,8 @@ const Story = ({ title, url, kids }: StoryType) => {
           <div class="mt-[12px]">Upvotes</div>
         </div>
       </div>
-      <div>
-        {kids.map((kid) => (
-          <StoryCommentSkeleton itemId={kid} />
-        ))}
-      </div>
+
+      {renderKids()}
     </div>
   );
 };

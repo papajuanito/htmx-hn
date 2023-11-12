@@ -785,6 +785,10 @@ video {
   text-align: left;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-\[12px\] {
   font-size: 12px;
 }
